@@ -1,0 +1,12 @@
+providers:
+  - name: deepseek
+    protocol: openai-compatible
+    api_key: test-key-not-a-real-secret
+    base_url: https://api.deepseek.com
+    model: deepseek-chat
+    stream: true
+    timeout_seconds: 30
+    temperature: 0.5
+    max_tokens: 1024
+default_provider: deepseek
+log_level: INFO

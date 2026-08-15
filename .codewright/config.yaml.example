@@ -1,0 +1,36 @@
+# Copy this file to .codewright/config.yaml and provide your own API key.
+# Never commit the copied config.yaml file.
+#
+# Project instructions are loaded in this order:
+#   1. <project>/codewright.md
+#   2. <project>/.codewright/codewright.md
+#   3. ~/.codewright/codewright.md
+# Project-level .codewright/memory/ stores durable Agent notes.
+# Project-level .codewright/sessions/ stores resumable conversation JSONL files.
+# Both runtime-data directories are ignored by Git.
+providers:
+  - name: deepseek
+    protocol: openai-compatible
+    api_key: ""
+    base_url: https://api.deepseek.com
+    model: deepseek-chat
+    # Optional; openai-compatible providers default to 128000 when omitted or zero.
+    context_window: 128000
+    stream: true
+    timeout_seconds: 60
+    temperature: 0.5
+    max_tokens: 4096
+  - name: anthropic
+    protocol: anthropic
+    api_key: ""
+    base_url: https://api.anthropic.com
+    model: claude-sonnet-4-5
+    # Optional; Anthropic providers default to 200000 when omitted or zero.
+    context_window: 200000
+    stream: true
+    timeout_seconds: 60
+    temperature: 0.5
+    max_tokens: 4096
+
+default_provider: deepseek
+log_level: INFO

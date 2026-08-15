@@ -1,0 +1,120 @@
+Screen {
+    layout: vertical;
+}
+
+#chat-layout {
+    height: 100%;
+    padding: 1 2;
+}
+
+#app-info {
+    height: auto;
+    padding: 0 1 1 1;
+    color: $text-muted;
+    border-bottom: solid $primary;
+}
+
+#conversation-view {
+    height: 1fr;
+    padding: 1;
+    scrollbar-gutter: stable;
+}
+
+#resume-panel {
+    height: 14;
+    padding: 1;
+    border: solid $accent;
+    background: $surface;
+}
+
+#resume-search {
+    margin: 1 0;
+}
+
+#resume-options {
+    height: 1fr;
+}
+
+.message {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1;
+    padding: 1;
+}
+
+.user-message {
+    background: $boost;
+    border-left: thick $accent;
+}
+
+.assistant-message {
+    border-left: thick $primary;
+}
+
+.tool-call {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1;
+    padding: 0 1;
+    border-left: thick $warning;
+}
+
+.tool-success {
+    border-left: thick $success;
+}
+
+.tool-error {
+    border-left: thick $error;
+}
+
+.error-message {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1;
+    padding: 1;
+    color: $error;
+    border-left: thick $error;
+}
+
+.notice-message {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1;
+    padding: 0 1;
+    color: $text-muted;
+    border-left: thick $secondary;
+}
+
+.approval-request {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1;
+    padding: 1 2;
+    border-left: thick $warning;
+    background: $boost;
+}
+
+.approval-request:focus {
+    border-left: thick $accent;
+}
+
+#request-status {
+    height: 1;
+    color: $text-muted;
+}
+
+#command-completion {
+    display: none;
+    height: auto;
+    max-height: 8;
+    padding: 0 1;
+    color: $text;
+    background: $surface;
+    border-left: solid $accent;
+    border-right: solid $accent;
+}
+
+#message-input {
+    dock: bottom;
+    margin-top: 1;
+}

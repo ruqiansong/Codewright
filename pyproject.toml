@@ -1,0 +1,54 @@
+[project]
+name = "codewright"
+version = "1.0.0"
+description = "A terminal AI coding assistant"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "anthropic>=0.84.0",
+    "httpx>=0.28,<1",
+    "mcp>=1.27,<2",
+    "openai>=2.53.0",
+    "pydantic>=2.10.0",
+    "pyyaml>=6.0.2",
+    "rich>=15.0.0",
+    "textual>=0.89.1",
+]
+
+[project.scripts]
+codewright = "codewright.cli:main"
+
+[dependency-groups]
+dev = [
+    "mypy>=1.14.1",
+    "pytest>=8.3.4",
+    "pytest-asyncio>=0.25.2",
+    "pytest-timeout>=2.4.0",
+    "ruff>=0.9.3",
+    "types-pyyaml>=6.0.12.20241230",
+]
+
+[build-system]
+requires = ["uv_build>=0.12.3,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+asyncio_mode = "auto"
+testpaths = ["tests"]
+markers = [
+    "integration: explicitly enabled tests that access external services",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+extend-exclude = ["docs"]
+
+[tool.ruff.lint]
+select = ["B", "E", "F", "I", "UP"]
+
+[tool.mypy]
+files = ["src/codewright"]
+python_version = "3.12"
+strict = true

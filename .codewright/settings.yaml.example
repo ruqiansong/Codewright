@@ -1,0 +1,20 @@
+# Permission settings use the same schema at three levels.
+# Precedence is local > project > user; within one level, deny wins over allow.
+#   user:    ~/.codewright/settings.yaml
+#   project: <project>/.codewright/settings.yaml
+#   local:   <project>/.codewright/settings.local.yaml (generated and gitignored)
+#
+# Copy this example to .codewright/settings.yaml for project-shared policy.
+# Read-only tools are allowed by default. Allow rules mainly pre-authorize Bash/Write,
+# while deny rules can also fence sensitive reads such as .env files.
+
+default_mode: default
+
+permissions:
+  allow:
+    - "Bash(git *)"
+    - "Bash(pytest)"
+  deny:
+    - "Bash(rm *)"
+    - "Read(.env)"
+    - "Write(.env)"
